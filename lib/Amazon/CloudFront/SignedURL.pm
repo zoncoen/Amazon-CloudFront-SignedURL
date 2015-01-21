@@ -1,6 +1,7 @@
 package Amazon::CloudFront::SignedURL;
 use strict;
 use warnings;
+use Carp;
 use Crypt::OpenSSL::RSA;
 use Data::Validator;
 use MIME::Base64;
@@ -12,12 +13,10 @@ our $VERSION = "0.01";
 my $validator = Data::Validator->new(
     resource => { isa => 'Str', },
     expires  => {
-        isa      => 'Int',
-        xor      => [qw(policy)],
+        isa => 'Int',
+        xor => [qw(policy)],
     },
-    policy => {
-        isa      => 'Str',
-    },
+    policy => { isa => 'Str', },
 );
 
 has private_key_string => (
@@ -42,7 +41,11 @@ has key_pair_id => (
 );
 
 sub _build_private_key {
-    my $private_key = Crypt::OpenSSL::RSA->new_private_key( $_[0]->private_key_string() );
+    my $private_key;
+    eval { $private_key = Crypt::OpenSSL::RSA->new_private_key( $_[0]->private_key_string() ); };
+    if ($@) {
+        croak "Private Key Error: Maybe your key is invalid. ($@)";
+    }
     $private_key->use_sha1_hash();
     return $private_key;
 }

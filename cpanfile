@@ -1,5 +1,6 @@
 requires 'perl', '5.008001';
 
+requires 'Carp';
 requires 'Crypt::OpenSSL::RSA';
 requires 'Data::Validator';
 requires 'MIME::Base64';

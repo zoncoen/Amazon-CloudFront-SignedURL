@@ -2,6 +2,10 @@ Revision history for Perl extension Amazon-CloudFront-SignedURL
 
 {{$NEXT}}
 
+0.02 2015-01-23T07:55:16Z
+
+    - [MODIFY] Generate url as string.
+
 0.01 2015-01-22T07:10:22Z
 
     - original version

@@ -99,7 +99,7 @@ sub _create_url {
             'Key-Pair-Id' => $self->key_pair_id(),
         );
     }
-    return $uri;
+    return $uri->as_string;
 }
 
 no Mouse;

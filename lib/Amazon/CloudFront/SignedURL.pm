@@ -8,7 +8,7 @@ use MIME::Base64;
 use Mouse;
 use URI;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 my $validator = Data::Validator->new(
     resource => { isa => 'Str', },

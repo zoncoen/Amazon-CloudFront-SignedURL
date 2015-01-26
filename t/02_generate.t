@@ -64,7 +64,7 @@ subtest 'use custom policy' => sub {
             '{"Statement":[{"Resource":"test","Condition":{"DateLessThan":{"AWS:EpochTime":1422494408},"IpAddress":{"AWS:SourceIp":"192.0.2.1"}}}]}',
     );
     is $url,
-        'test?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoidGVzdCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1Ro%0AYW4iOnsiQVdTOkVwb2NoVGltZSI6MTQyMjQ5NDQwOH0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNl%0ASXAiOiIxOTIuMC4yLjEifX19XX0_%0A&Signature=kJyVkf5xCpCWNYoyiP~LqU~VzdsbqxUkVbaULMynF7opnHODAkgEIDvQ48epslcXdYifc79tsoTUpK60nUJ8IqRt~6jKjBhMQzYy2wFYprqYzivDvYwne1CCrA6IKLCJF7KZhpmuHMIRa963bpQzXjLCmaHEjh0b9biLZGVCo~nCRrC8ItV-rFhV1gVdWNnpgDpMYU4euzYE6YxzN51LGGcrMXEgxm~CEbPwyYhqrx6xWrCp~1H7CMPC54BgxnW33902uCDN9riB-521fHSnqTHKn1XmJ5Hp01PkS6X16sKnQGVFkgxfAd4oClBRVNCMqZ~LG-YKBntLnDJfFRgQvQ__&Key-Pair-Id=FLSIGIOFD4CF6IDLG2DD';
+        'test?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoidGVzdCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTQyMjQ5NDQwOH0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIxOTIuMC4yLjEifX19XX0_&Signature=kJyVkf5xCpCWNYoyiP~LqU~VzdsbqxUkVbaULMynF7opnHODAkgEIDvQ48epslcXdYifc79tsoTUpK60nUJ8IqRt~6jKjBhMQzYy2wFYprqYzivDvYwne1CCrA6IKLCJF7KZhpmuHMIRa963bpQzXjLCmaHEjh0b9biLZGVCo~nCRrC8ItV-rFhV1gVdWNnpgDpMYU4euzYE6YxzN51LGGcrMXEgxm~CEbPwyYhqrx6xWrCp~1H7CMPC54BgxnW33902uCDN9riB-521fHSnqTHKn1XmJ5Hp01PkS6X16sKnQGVFkgxfAd4oClBRVNCMqZ~LG-YKBntLnDJfFRgQvQ__&Key-Pair-Id=FLSIGIOFD4CF6IDLG2DD';
 };
 
 done_testing;

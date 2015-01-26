@@ -58,7 +58,10 @@ sub generate {
     my $policy   = exists $args->{policy} ? $args->{policy} : undef;
     my $expires  = exists $args->{expires} ? $args->{expires} : undef;
 
-    unless ($policy) {
+    if ($policy) {
+        $policy =~ s/ //g;
+    }
+    else {
         $policy = sprintf( qq/{"Statement":[{"Resource":"%s","Condition":{"DateLessThan":{"AWS:EpochTime":%d}}}]}/,
             $resource, $expires );
     }
@@ -71,6 +74,7 @@ sub generate {
 sub _encode_url_safe_base64 {
     my ( $self, $str ) = @_;
     my $encoded = encode_base64($str);
+    $encoded =~ s/\r|\n//g;
     $encoded =~ tr|+=/|-_~|;
     return $encoded;
 }
@@ -78,7 +82,6 @@ sub _encode_url_safe_base64 {
 sub _sign {
     my ( $self, $str ) = @_;
     my $signature = $self->_encode_url_safe_base64( $self->private_key->sign($str) );
-    $signature =~ s/\r|\n//g;
     return $signature;
 }
 
